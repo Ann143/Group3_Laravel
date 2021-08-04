@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::put('/user/updateUser/{id}',[UserController::class,'updateUser']);
 
 // });
 
+Route::post('/users/{user}/carts', [CartController::class, 'store']); // ADD TO CART
 
 
 //Product Route

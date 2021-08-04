@@ -1,2 +1,7 @@
 ###
 GET http://127.0.0.1:8000/api/user/userById/7
+
+###
+POST http://127.0.0.1:8000/api/users/1/carts
+Content-Type: application/json
+Accept: application/json

@@ -21,5 +21,16 @@ class Product extends Model
     ];
 
 
+
     use HasFactory;
+
+//Product belongs to many cart
+    public function carts(){
+        return $this->belongsToMany(Cart::class);
+    }
+
+//Product belongs to many order 
+    public function orders(){
+        return $this->belongsToMany(Order::class);
+    }
 }
