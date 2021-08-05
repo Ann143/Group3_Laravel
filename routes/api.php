@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,11 @@ Route::put('/user/updateUser/{id}',[UserController::class,'updateUser']);
 
 // });
 
+Route::get('/users/carts/{cart}' , [CartController::class, 'getCartProducts']);
+Route::post('/orders/users/{user}', [CartController::class, 'checkout']);
 Route::post('/users/{user}/carts', [CartController::class, 'store']); // ADD TO CART
+
+
 
 
 //Product Route

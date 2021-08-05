@@ -22,8 +22,8 @@ class CartController extends Controller
             $cart = $user->cart()->create();
         }
 
-        $cart->products()->syncWithoutDetaching([ 1 /** Product id */=> [
-            'qty' => 10
+        $cart->products()->syncWithoutDetaching([ $request->product_id /** Product id */=> [
+            'qty' => $request->qty
         ]]);
     }
 
@@ -33,10 +33,26 @@ class CartController extends Controller
      * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show(Cart $cart)
+    public function getCartProducts(Cart $cart)
     {
-        //
+        return $cart->products;
     }
+
+    public function checkout(Request $request, User $user) {
+        $order = $user->orders()->create([
+            'address' => $request->address,
+            'phonenumber' => $request->phonenumber,
+            'total' => $request->total,
+            'status' =>$request->status
+        ]);
+
+        $order->products()->sync($request->product_ids);
+        $user->cart->products()->detach($request->product_ids);
+        
+        return "success";
+    }
+
+
 
 
     /**

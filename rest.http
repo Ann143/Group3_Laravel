@@ -5,3 +5,16 @@ GET http://127.0.0.1:8000/api/user/userById/7
 POST http://127.0.0.1:8000/api/users/1/carts
 Content-Type: application/json
 Accept: application/json
+###
+POST http://127.0.0.1:8000/api/users/6/orders
+Content-Type: application/json
+Accept: application/json
+
+{
+    product_ids: 1
+}
+### 
+
+POST http://127.0.0.1:8000/api/orders/users/6
+Content-Type: application/json
+Accept: application/json
