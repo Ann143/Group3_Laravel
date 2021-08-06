@@ -35,8 +35,11 @@ Route::put('/user/updateUser/{id}',[UserController::class,'updateUser']);
 
 // });
 
+Route::get('/users/{user}/carts/id', [CartController::class, 'getCartId']);
 Route::get('/users/carts/{cart}' , [CartController::class, 'getCartProducts']);
 Route::post('/orders/users/{user}', [CartController::class, 'checkout']);
+
+
 Route::post('/users/{user}/carts', [CartController::class, 'store']); // ADD TO CART
 
 
@@ -49,3 +52,5 @@ Route::get('/product/getProductById/{id}',[ProductController::class, 'getProduct
 Route::delete('/product/deleteProduct/{id}',[ProductController::class, 'destroyProduct']);
 Route::put('/product/updateProduct/{id}',[ProductController::class, 'updateProduct']);
 
+//Order RToute
+Route::get('/order',[OrderController::class, 'getOrders']);

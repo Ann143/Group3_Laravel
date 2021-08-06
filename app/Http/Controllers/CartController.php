@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-   
+   public function getCartId(User $user)
+   {
+       return $user->cart->id;
+   }
     /**
      * Store a newly created resource in storage.
      *
@@ -77,4 +80,6 @@ class CartController extends Controller
     {
         //
     }
+
+    
 }
